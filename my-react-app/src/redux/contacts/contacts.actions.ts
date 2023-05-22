@@ -15,6 +15,6 @@ export const getContact = ()=>{
 export const updateContact = (data:dataType)=>{
     return {type:UPDATE_CONTACT,payload:data}
 }
-export const deleteContact = (data:dataType)=>{
-    return {type:DELETE_CONTACT,payload:data}
+export const deleteContact = (id:dataType)=>{
+    return {type:DELETE_CONTACT,payload:id}
 }
