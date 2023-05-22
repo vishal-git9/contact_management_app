@@ -4,22 +4,22 @@ import Modal from "./modal"
 
 export interface functionType{
     items:dataType
-    handleDelete:(id:string)=>void,
-    handleUpdate:(id:string,data:dataType)=>void
+    handleDelete:(data:dataType)=>void,
+    handleUpdate:(data:dataType)=>void
 }
 
 export const Contact = ({items,handleDelete,handleUpdate}:functionType) => {
   const [open,setOpen] = useState<boolean>(false)
   const handleUpdateModal = (data:dataType)=>{
     console.log("hi")
-    handleUpdate(items.id,data)
+    handleUpdate(data)
     console.log(data)
     setOpen(false)
   }
     return (
         <>
                   <div
-                    className="px-4 py-2 mt-4 border rounded grid gap-4 sm:flex sm:flex-col md:grid-cols-2 lg:grid-cols-3"
+                    className="px-4 py-2 mt-4 border rounded grid gap-4 sm:flex sm:flex-col md:grid-cols-2 lg:grid-cols-2"
                   >
                     <p>
                       {items?.firstName} {items?.lastName}
@@ -33,7 +33,7 @@ export const Contact = ({items,handleDelete,handleUpdate}:functionType) => {
                     </button>
                     <button
                       className="border rounded bg-red-500 text-white cursor-pointer py-2 px-4"
-                      onClick={() => handleDelete(items.id)}
+                      onClick={() => handleDelete(items)}
                     >
                       Delete
                     </button>
