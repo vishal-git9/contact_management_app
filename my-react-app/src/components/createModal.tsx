@@ -32,12 +32,13 @@ const Create = () => {
     e.preventDefault();
     const { firstName, lastName, status } = contact;
     const id = firstName + Math.random() + lastName;
-    console.log(contact)
+    // this is to check whether the user has filled all the required information or not based on that it shows alert
     if(!firstName || !lastName || !status){
         console.log("show alert")
         return;
       }
-      console.log("dispt")
+
+    //   if all fields are validated it dispatches the action of creating a new contact in the redux store
       dispatch(addContact({firstName,lastName,status,id}))
       setContact(initState)
       closeModal()

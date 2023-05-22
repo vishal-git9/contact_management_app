@@ -13,19 +13,20 @@ export default function Modal({
   handleSubmit,
   items,
 }: modalType) {
+  // it restores the current value to the edit modal and update it based on the users changes
   const [editedData, setEditedData] = useState<dataType>({ ...items });
   const cancelButtonRef = useRef(null);
 
-  const handleEditChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
+  // it keeps the record of new changes done by users using onchange handler
+  const handleEditChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setEditedData({ ...editedData, [name]: value });
   };
+
+  // this function invokes when user submits this updated form which goes to the handleSubmit function that carries out the updated functionality
   const handleSubmitData = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     handleSubmit(editedData);
-    console.log("hi");
   };
   return (
     <Transition.Root show={open} as={Fragment}>

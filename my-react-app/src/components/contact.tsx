@@ -9,11 +9,12 @@ export interface functionType{
 }
 
 export const Contact = ({items,handleDelete,handleUpdate}:functionType) => {
+  // keeping modal change in sync with usestate
   const [open,setOpen] = useState<boolean>(false)
+
+  // this function will be invoked once the user has updated contact changes
   const handleUpdateModal = (data:dataType)=>{
-    console.log("hi")
     handleUpdate(data)
-    console.log(data)
     setOpen(false)
   }
     return (
