@@ -2,8 +2,10 @@ import { useState, Fragment, FormEvent, ChangeEvent } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { addContact, dataType } from "../redux/contacts/contacts.actions";
 import { useAppDispatch } from "../redux/hooks";
+import { Alert } from "./alert";
 const Create = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [alert,setAlert] = useState<boolean>(false)
   const [contact, setContact] = useState<dataType>({
     firstName: "",
     lastName: "",
@@ -34,7 +36,8 @@ const Create = () => {
     const id = firstName + Math.random() + lastName;
     // this is to check whether the user has filled all the required information or not based on that it shows alert
     if(!firstName || !lastName || !status){
-        console.log("show alert")
+        setAlert(true)
+        closeModal()
         return;
       }
 
@@ -45,13 +48,13 @@ const Create = () => {
   };
   return (
     <>
+     {alert && <Alert />}
       <button
         onClick={openModal}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
       >
         Create Contact
       </button>
-
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"

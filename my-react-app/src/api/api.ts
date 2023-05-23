@@ -1,18 +1,18 @@
-import axios from "axios"
+import axios, { AxiosResponse } from "axios"
 
 export const getWorlwideData = async()=>{
-    const res = await axios(`https://disease.sh/v3/covid-19/all`)
+    const res = await axios<AxiosResponse[]>(`https://disease.sh/v3/covid-19/all`)
     return res.data
 }
 
 
 export const getCountryWiseData = async()=>{
-    const res = await axios(`https://disease.sh/v3/covid-19/countries`)
+    const res = await axios<AxiosResponse[]>(`https://disease.sh/v3/covid-19/countries`)
     return res.data
 }
 
 export const getDateWiseData = async()=>{
-    const res = await axios(`https://disease.sh/v3/covid-19/historical/all?lastdays=all`)
+    const res = await axios<AxiosResponse[]>(`https://disease.sh/v3/covid-19/historical/all?lastdays=all`)
     return res.data
 }
 

@@ -5,7 +5,7 @@ import { DashboardPage } from '../pages/dashboardPage'
 export const Allroutes = () => {
   return (
     <Routes>
-        <Route path='/contacts' element={<ContactPage/>}></Route>
+        <Route path='/' element={<ContactPage/>}></Route>
         <Route path='/dashboard' element={<DashboardPage/>}></Route>
     </Routes>
   )

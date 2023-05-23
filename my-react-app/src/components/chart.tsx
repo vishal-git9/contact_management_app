@@ -34,7 +34,7 @@ export const Chart = () => {
 
     let min = Infinity
     let max = -Infinity
-    const cases = ChartQuery.data.cases
+    const {cases} = ChartQuery.data
     for(const key in cases){
         if(cases[key]>max){
             max = cases[key]
@@ -44,9 +44,6 @@ export const Chart = () => {
         }
     }
     console.log(ChartQuery.data)
-    console.log(max)
-    console.log(min)
-
     chartjs.register(
         LineElement,
         CategoryScale,
@@ -90,9 +87,8 @@ export const Chart = () => {
       };
   return (
     <div>
-        World Wide cases (2020-2023)
+        <h1 className=" font-bold text-lg">World Wide Cases Chart (2020-2023)</h1>
         <Line data={data} options={options}>
-
         </Line>
         </div>
   )

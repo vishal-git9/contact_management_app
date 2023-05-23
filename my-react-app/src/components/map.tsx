@@ -24,36 +24,39 @@ const MapWithMarkers: React.FC = () => {
     });
   });
   return (
-    <MapContainer
-      center={[13.084622, 80.248357]}
-      zoom={2}
-      scrollWheelZoom={false}
-      style={{ height: "400px", width: "100%" }}
-    >
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      {markers.map((marker: any, index: any) => (
-        <Marker key={index} position={marker.position}>
-          <Popup>
-            <div className="flex items-center gap-4">
-            <span className="font-bold">Country</span>
-            <p className="text-base">{marker.name} </p>
-            </div>
-            <div className="flex items-center gap-4">
-            <span className="text-Amber-500 font-bold">Active</span>
-            <p className="text-base">{marker.active} </p>
-            </div>
-            <div className="flex items-center gap-4">
-            <span className="text-Lime-600 font-bold">Recovered</span>
-            <p className="text-base">{marker.recovered}</p>
-            </div>
-            <div className="flex items-center gap-4">
-            <span className="text-red-700 font-bold	">Deaths</span>
-            <p className="text-base">{marker.death} </p>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
-    </MapContainer>
+    <div>
+      <h1 className="mb-10 font-bold text-lg">World wide Cases Map</h1>
+      <MapContainer
+        center={[13.084622, 80.248357]}
+        zoom={2}
+        scrollWheelZoom={false}
+        style={{ height: "400px", width: "100%" }}
+      >
+        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        {markers.map((marker: any, index: any) => (
+          <Marker key={index} position={marker.position}>
+            <Popup>
+              <div className="flex items-center gap-4">
+                <span className="font-bold">Country</span>
+                <p className="text-base">{marker.name} </p>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-Amber-500 font-bold">Active</span>
+                <p className="text-base">{marker.active} </p>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-Lime-600 font-bold">Recovered</span>
+                <p className="text-base">{marker.recovered}</p>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-red-700 font-bold	">Deaths</span>
+                <p className="text-base">{marker.death} </p>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
   );
 };
 

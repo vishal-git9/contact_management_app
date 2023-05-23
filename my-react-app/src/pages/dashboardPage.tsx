@@ -4,9 +4,12 @@ import MapWithMarkers from "../components/map"
 export const DashboardPage = () => {
   
   return (
-    <div>DashboardPage
+    <div>
+      <h1>DashboardPage</h1>
+      <div className="flex flex-col gap-20 mt-20">
       <Chart/>
       <MapWithMarkers/>
+      </div>
     </div>
   )
 }
