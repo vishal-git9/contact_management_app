@@ -13,6 +13,7 @@ const MapWithMarkers: React.FC = () => {
   if (ChartQuery.status === "error")
     return <h1>{JSON.stringify(ChartQuery.error)}</h1>;
 
+    // sending any as type due to the big size of response object 
   const markers: any = [];
   ChartQuery.data.map((el: any) => {
     markers.push({

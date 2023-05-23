@@ -9,19 +9,7 @@ import {
     PointElement,
     Tooltip,
 }
-
 from "chart.js"
-// interface ChartDataInterface {
-//     labels: string[];
-//     datasets: {
-//       label: string;
-//       data: number[];
-//       backgroundColor: string;
-//       borderColor: string;
-//       borderWidth: number;
-//       fill: boolean;
-//     }[];
-//   }
 
 export const Chart = () => {
     const ChartQuery = useQuery({
@@ -32,6 +20,7 @@ export const Chart = () => {
     if(ChartQuery.status==="loading") return <h1>Loading...</h1>
     if(ChartQuery.status==="error") return <h1>{JSON.stringify(ChartQuery.error)}</h1>
 
+    // finding out the max and min of cases to show numbers on y-axis of chart
     let min = Infinity
     let max = -Infinity
     const {cases} = ChartQuery.data
@@ -51,6 +40,8 @@ export const Chart = () => {
         PointElement,
         Tooltip
     ) 
+
+    // date to be passed here we have passed cases as the data
     const data = {
         labels:[],
         datasets:[{
@@ -62,6 +53,8 @@ export const Chart = () => {
             fill: true,    
         }]
     }
+
+    //options to be passed in chart
 
     const options = {
         plugins: {

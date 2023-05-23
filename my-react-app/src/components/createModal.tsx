@@ -43,6 +43,7 @@ const Create = () => {
 
     //   if all fields are validated it dispatches the action of creating a new contact in the redux store
       dispatch(addContact({firstName,lastName,status,id}))
+      setAlert(false)
       setContact(initState)
       closeModal()
   };

@@ -12,7 +12,8 @@ export const getCountryWiseData = async()=>{
 }
 
 export const getDateWiseData = async()=>{
-    const res = await axios<AxiosResponse[]>(`https://disease.sh/v3/covid-19/historical/all?lastdays=all`)
+    const res = await axios(`https://disease.sh/v3/covid-19/historical/all?lastdays=all`)
+    console.log(res)
     return res.data
 }
 
